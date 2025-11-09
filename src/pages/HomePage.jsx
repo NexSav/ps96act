@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 
 // Icon Components (inline SVG)
@@ -45,12 +45,15 @@ const ArrowRightIcon = () => (
 );
 
 const HomePage = () => {
-  const [reducedMotion, setReducedMotion] = useState(false);
-
+  // Respect user's motion preferences
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setReducedMotion(mediaQuery.matches);
-    const handler = (e) => setReducedMotion(e.matches);
+    if (mediaQuery.matches) {
+      document.documentElement.style.setProperty('--animation-duration', '0.01ms');
+    }
+    const handler = (e) => {
+      document.documentElement.style.setProperty('--animation-duration', e.matches ? '0.01ms' : '');
+    };
     mediaQuery.addEventListener('change', handler);
     return () => mediaQuery.removeEventListener('change', handler);
   }, []);
