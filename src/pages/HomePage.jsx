@@ -85,19 +85,23 @@ const HomePage = () => {
       <Navbar />
 
       <main id="main-content">
-        {/* Hero Section - Asymmetric Split Design */}
+        {/* Hero Section - Video Background */}
         <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
-          {/* Diagonal Background Split */}
+          {/* Video Background */}
           <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#0066B8] via-[#0078D4] to-[#0091EA]"></div>
-            <div
-              className="absolute inset-0 bg-gradient-to-tl from-[#D4A908] via-[#E8BB09] to-[#F4C430]"
-              style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 85%)' }}
-            ></div>
-            {/* Pattern Overlay */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
-            </div>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+            >
+              <source src="/assets/videos/homepage/ps96.mov" type="video/mp4" />
+            </video>
+
+            {/* Gradient Overlay for readability */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50"></div>
           </div>
 
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
