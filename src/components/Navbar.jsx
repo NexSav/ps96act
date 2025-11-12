@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 const ChevronDownIcon = () => (
-  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
   </svg>
 );
 
 const ChevronRightIcon = () => (
-  <svg className="w-4 h-4 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+  <svg className="w-4 h-4 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
   </svg>
 );
 
@@ -46,7 +46,6 @@ const Navbar = () => {
   }, []);
 
   const navItems = [
-    { label: 'Home', href: '/' },
     {
       label: 'About Us',
       dropdown: [
@@ -64,7 +63,7 @@ const Navbar = () => {
             { label: 'Meet The Team', href: '/cluster-classes/team' }
           ]
         },
-        { label: 'iReady Family Center', href: '/iready' }
+        { label: 'iReady Family Center', href: 'https://i-readycentral.com/familycenter/' }
       ]
     },
     {
@@ -99,37 +98,39 @@ const Navbar = () => {
       {/* Skip to content - visible on focus */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:px-4 focus:py-2 focus:bg-white focus:text-gray-900 focus:rounded-lg focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-accent"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:px-4 focus:py-2 focus:bg-white focus:text-gray-900 focus:rounded-lg focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#00213a] focus:ring-offset-2"
       >
         Skip to main content
       </a>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <nav
-          className={`relative mt-6 rounded-full transition-all duration-300 border ${
+          className={`relative mt-6 rounded-2xl transition-all duration-200 overflow-visible ${
             isScrolled
-              ? 'bg-white/95 backdrop-blur-xl shadow-lg border-gray-200'
-              : 'bg-white/70 backdrop-blur-md shadow-sm border-white/20'
+              ? 'bg-white shadow-md'
+              : 'bg-white/80 backdrop-blur-lg shadow-sm'
           }`}
           aria-label="Primary navigation"
         >
-          <div className="flex items-center justify-between h-14 px-6">
+          <div className="flex items-center justify-between h-16 px-6">
             {/* Logo and School Name */}
-            <div className="flex items-center gap-3">
+            <a href="/" className="flex items-center gap-3">
               <div className="flex-shrink-0">
-                <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#E8BB09] via-[#D4A908] to-[#0078D4] flex items-center justify-center shadow-md">
-                  <span className="text-white font-bold text-sm">96</span>
-                </div>
+                <img
+                  src="/assets/images/ps96act_logo.png"
+                  alt="PS 96 Joseph C. Lanzetta School Logo"
+                  className="h-12 w-auto"
+                />
               </div>
               <div className="hidden sm:flex flex-col">
-                <span className="text-base font-bold text-gray-900 leading-none tracking-tight">
+                <span className="text-base font-semibold text-gray-900 leading-none tracking-tight">
                   PS 96
                 </span>
-                <span className="hidden lg:block text-xs text-gray-600 leading-none mt-0.5">
+                <span className="hidden lg:block text-xs text-gray-600 leading-none mt-0.5 font-medium">
                   Lanzetta School
                 </span>
               </div>
-            </div>
+            </a>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-1">
@@ -141,7 +142,7 @@ const Navbar = () => {
                     <a
                       key={item.label}
                       href={item.href}
-                      className="px-3 py-1.5 text-sm font-medium text-gray-700 hover:text-[#0078D4] transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E8BB09] rounded-full"
+                      className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#00213a] transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00213a] focus-visible:ring-offset-2 rounded-lg"
                     >
                       {item.label}
                     </a>
@@ -160,7 +161,7 @@ const Navbar = () => {
                     }}
                   >
                     <button
-                      className="inline-flex items-center px-3 py-1.5 text-sm font-medium text-gray-700 hover:text-[#0078D4] transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E8BB09] rounded-full"
+                      className="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#00213a] transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00213a] focus-visible:ring-offset-2 rounded-lg"
                       aria-expanded={openDropdown === index}
                       aria-haspopup="true"
                     >
@@ -170,8 +171,8 @@ const Navbar = () => {
 
                     {/* Dropdown Menu */}
                     {openDropdown === index && (
-                      <div className="absolute left-0 top-full pt-2 w-56 z-50">
-                        <div className="bg-white rounded-2xl shadow-xl border border-gray-200 py-2">
+                      <div className="absolute left-0 top-full pt-2 w-64 z-50">
+                        <div className="bg-white rounded-xl shadow-lg border border-gray-200 py-2">
                         {item.dropdown.map((dropdownItem, dropdownIndex) => {
                           const hasSubDropdown = dropdownItem.subDropdown && dropdownItem.subDropdown.length > 0;
 
@@ -180,7 +181,7 @@ const Navbar = () => {
                               <a
                                 key={dropdownItem.label}
                                 href={dropdownItem.href}
-                                className="block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-[#0078D4] transition-colors duration-150"
+                                className="block px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-[#00213a] transition-colors duration-150"
                               >
                                 {dropdownItem.label}
                               </a>
@@ -195,7 +196,7 @@ const Navbar = () => {
                               onMouseLeave={() => setOpenSubDropdown(null)}
                             >
                               <button
-                                className="w-full flex items-center justify-between px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-[#0078D4] transition-colors duration-150 text-left"
+                                className="w-full flex items-center justify-between px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-[#00213a] transition-colors duration-150 text-left"
                                 aria-expanded={openSubDropdown === `${index}-${dropdownIndex}`}
                                 aria-haspopup="true"
                               >
@@ -205,13 +206,13 @@ const Navbar = () => {
 
                               {/* Sub-dropdown Menu */}
                               {openSubDropdown === `${index}-${dropdownIndex}` && (
-                                <div className="absolute left-full top-0 pl-1 w-48 z-50">
-                                  <div className="bg-white rounded-2xl shadow-xl border border-gray-200 py-2">
+                                <div className="absolute left-full top-0 pl-2 w-56 z-50">
+                                  <div className="bg-white rounded-xl shadow-lg border border-gray-200 py-2">
                                     {dropdownItem.subDropdown.map((subItem) => (
                                       <a
                                         key={subItem.label}
                                         href={subItem.href}
-                                        className="block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-[#0078D4] transition-colors duration-150"
+                                        className="block px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-[#00213a] transition-colors duration-150"
                                       >
                                         {subItem.label}
                                       </a>
@@ -230,7 +231,7 @@ const Navbar = () => {
               })}
               <a
                 href="#visit"
-                className="ml-3 px-5 py-1.5 text-sm font-semibold text-white bg-gradient-to-r from-[#0078D4] to-[#0091EA] hover:from-[#006ABC] hover:to-[#0078D4] rounded-full shadow-md hover:shadow-lg transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0078D4] focus-visible:ring-offset-2"
+                className="ml-3 px-5 py-2 text-sm font-semibold text-white bg-gradient-to-r from-[#00213a] to-[#003a5d] hover:from-[#002844] hover:to-[#001f33] rounded-lg shadow-sm hover:shadow transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00213a] focus-visible:ring-offset-2"
               >
                 Visit
               </a>
@@ -239,7 +240,7 @@ const Navbar = () => {
             {/* Mobile menu button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-full text-gray-700 hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E8BB09]"
+              className="lg:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00213a] focus-visible:ring-offset-2"
               aria-expanded={mobileMenuOpen}
               aria-label="Toggle menu"
             >
@@ -248,20 +249,18 @@ const Navbar = () => {
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-                aria-hidden="true"
+                strokeWidth={1.5}
               >
                 {mobileMenuOpen ? (
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    strokeWidth={2}
                     d="M6 18L18 6M6 6l12 12"
                   />
                 ) : (
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    strokeWidth={2}
                     d="M4 6h16M4 12h16M4 18h16"
                   />
                 )}
@@ -271,7 +270,7 @@ const Navbar = () => {
 
           {/* Mobile menu */}
           {mobileMenuOpen && (
-            <div className="lg:hidden border-t border-gray-100 px-4 py-4 space-y-1 rounded-b-3xl bg-white/95 backdrop-blur-xl max-h-[calc(100vh-100px)] overflow-y-auto">
+            <div className="lg:hidden border-t border-gray-100 px-4 py-4 space-y-1 bg-white max-h-[calc(100vh-100px)] overflow-y-auto">
               {navItems.map((item, index) => {
                 const hasDropdown = item.dropdown && item.dropdown.length > 0;
 
@@ -280,7 +279,7 @@ const Navbar = () => {
                     <a
                       key={item.label}
                       href={item.href}
-                      className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-[#0078D4] rounded-lg transition-colors duration-150"
+                      className="block px-3 py-2.5 text-base font-medium text-gray-700 hover:text-[#00213a] hover:bg-gray-50 rounded-lg transition-colors duration-150"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {item.label}
@@ -292,7 +291,7 @@ const Navbar = () => {
                   <div key={item.label} className="space-y-1">
                     <button
                       onClick={() => setMobileOpenDropdown(mobileOpenDropdown === index ? null : index)}
-                      className="w-full flex items-center justify-between px-3 py-2 text-base font-medium text-gray-700 hover:text-[#0078D4] rounded-lg transition-colors duration-150"
+                      className="w-full flex items-center justify-between px-3 py-2.5 text-base font-medium text-gray-700 hover:text-[#00213a] hover:bg-gray-50 rounded-lg transition-colors duration-150"
                       aria-expanded={mobileOpenDropdown === index}
                     >
                       {item.label}
@@ -310,7 +309,7 @@ const Navbar = () => {
                               <a
                                 key={dropdownItem.label}
                                 href={dropdownItem.href}
-                                className="block px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#0078D4] rounded-lg transition-colors duration-150"
+                                className="block px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#00213a] hover:bg-gray-50 rounded-lg transition-colors duration-150"
                                 onClick={() => setMobileMenuOpen(false)}
                               >
                                 {dropdownItem.label}
@@ -325,7 +324,7 @@ const Navbar = () => {
                                   const key = `${index}-${dropdownIndex}`;
                                   setMobileOpenSubDropdown(mobileOpenSubDropdown === key ? null : key);
                                 }}
-                                className="w-full flex items-center justify-between px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#0078D4] rounded-lg transition-colors duration-150"
+                                className="w-full flex items-center justify-between px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#00213a] hover:bg-gray-50 rounded-lg transition-colors duration-150"
                                 aria-expanded={mobileOpenSubDropdown === `${index}-${dropdownIndex}`}
                               >
                                 {dropdownItem.label}
@@ -339,7 +338,7 @@ const Navbar = () => {
                                     <a
                                       key={subItem.label}
                                       href={subItem.href}
-                                      className="block px-3 py-2 text-sm font-medium text-gray-500 hover:text-[#0078D4] rounded-lg transition-colors duration-150"
+                                      className="block px-3 py-2 text-sm font-medium text-gray-500 hover:text-[#00213a] hover:bg-gray-50 rounded-lg transition-colors duration-150"
                                       onClick={() => setMobileMenuOpen(false)}
                                     >
                                       {subItem.label}
@@ -357,7 +356,7 @@ const Navbar = () => {
               })}
               <a
                 href="#visit"
-                className="block text-center px-4 py-2.5 text-base font-semibold text-white bg-gradient-to-r from-[#0078D4] to-[#0091EA] rounded-full shadow-md mt-3"
+                className="block text-center px-4 py-3 text-base font-semibold text-white bg-gradient-to-r from-[#00213a] to-[#003a5d] rounded-lg shadow-sm mt-3"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Schedule a Visit

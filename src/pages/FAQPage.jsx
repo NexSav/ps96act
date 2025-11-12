@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 // Icon Components
 const PhoneIcon = () => (
@@ -70,33 +71,31 @@ const FAQPage = () => {
     <div className="min-h-screen bg-white">
       <Navbar />
 
-      <main className="pt-24 pb-16">
+      <main className="pt-0 pb-16">
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-[#0066B8] via-[#0078D4] to-[#0091EA] py-16 overflow-hidden">
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
-          </div>
-
+        <section className="relative pt-28 pb-24 overflow-hidden" style={{
+          background: 'linear-gradient(to bottom, #00213a 0%, #00213a 70%, rgba(0, 33, 58, 0.7) 80%, rgba(0, 33, 58, 0.3) 90%, rgba(255, 255, 255, 1) 100%)'
+        }}>
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6 border border-white/30">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 mb-6">
               <InfoIcon />
-              <span className="text-sm font-bold text-white">Help & Support</span>
+              <span className="text-sm font-semibold text-white tracking-tight">Help & Support</span>
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6 drop-shadow-lg">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-white mb-6 tracking-tight" style={{letterSpacing: '-0.02em'}}>
               Frequently Asked Questions
             </h1>
-            <p className="text-xl text-white font-medium mb-6 max-w-3xl mx-auto drop-shadow">
+            <p className="text-xl text-white/90 font-normal mb-8 max-w-3xl mx-auto leading-relaxed">
               Find answers to common questions about PS 96. This document is updated regularly with new information.
             </p>
 
             {/* Contact Alert */}
-            <div className="inline-flex items-center gap-3 bg-white/25 backdrop-blur-sm px-6 py-4 rounded-2xl border border-white/40 shadow-xl">
-              <div className="w-10 h-10 rounded-full bg-white/30 flex items-center justify-center flex-shrink-0">
+            <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm px-6 py-4 rounded-xl border border-white/20 shadow-sm">
+              <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center flex-shrink-0">
                 <PhoneIcon />
               </div>
               <div className="text-left">
                 <div className="text-sm text-white/90 font-medium">Need immediate assistance?</div>
-                <a href="tel:212-860-5851" className="text-lg font-bold text-white hover:underline">
+                <a href="tel:212-860-5851" className="text-lg font-semibold text-white hover:underline">
                   Call 212-860-5851
                 </a>
               </div>
@@ -105,29 +104,29 @@ const FAQPage = () => {
         </section>
 
         {/* FAQ Content */}
-        <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 mt-12">
           {/* Contact Information */}
           <div className="mb-16">
-            <h2 className="text-3xl font-black text-gray-900 mb-6 flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-[#0078D4]/10 flex items-center justify-center text-[#0078D4]">
+            <h2 className="text-3xl font-semibold text-gray-900 mb-6 flex items-center gap-3 tracking-tight" style={{letterSpacing: '-0.02em'}}>
+              <div className="w-10 h-10 rounded-lg bg-[#00213a]/10 flex items-center justify-center text-[#00213a]">
                 <PhoneIcon />
               </div>
               How can I contact PS 96 staff?
             </h2>
-            <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl p-8 border border-gray-200">
+            <div className="bg-gray-50 rounded-xl p-8 border border-gray-200">
               <p className="text-lg text-gray-700 font-medium mb-6">
-                Dial <a href="tel:212-860-5851" className="text-[#0078D4] font-bold hover:underline">212-860-5851</a> to reach our main office.
+                Dial <a href="tel:212-860-5851" className="text-[#00213a] font-bold hover:underline">212-860-5851</a> to reach our main office.
               </p>
 
               <h3 className="text-xl font-bold text-gray-900 mb-4">Most Frequently Requested Email Addresses:</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 {staffContacts.map((staff, index) => (
-                  <div key={index} className="bg-white rounded-xl p-4 border border-gray-200 hover:border-[#0078D4] hover:shadow-md transition-all duration-200">
+                  <div key={index} className="bg-white rounded-xl p-4 border border-gray-200 hover:border-[#00213a] hover:shadow-md transition-all duration-200">
                     <div className="font-bold text-gray-900 mb-1">{staff.name}</div>
                     <div className="text-sm text-gray-600 mb-2">{staff.title}</div>
                     <a
                       href={`mailto:${staff.email}`}
-                      className="inline-flex items-center gap-1 text-sm text-[#0078D4] hover:underline font-medium"
+                      className="inline-flex items-center gap-1 text-sm text-[#00213a] hover:underline font-medium"
                     >
                       <MailIcon />
                       {staff.email}
@@ -141,7 +140,7 @@ const FAQPage = () => {
           {/* Update Contact Info */}
           <div className="mb-16">
             <h2 className="text-3xl font-black text-gray-900 mb-6 flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-[#E8BB09]/10 flex items-center justify-center text-[#D4A908]">
+              <div className="w-10 h-10 rounded-xl bg-[#fdbb2e]/10 flex items-center justify-center text-[#fdbb2e]">
                 <InfoIcon />
               </div>
               How can I update my contact information?
@@ -156,13 +155,13 @@ const FAQPage = () => {
           {/* Arrival/Dismissal */}
           <div className="mb-16">
             <h2 className="text-3xl font-black text-gray-900 mb-6 flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-[#0078D4]/10 flex items-center justify-center text-[#0078D4]">
+              <div className="w-10 h-10 rounded-xl bg-[#00213a]/10 flex items-center justify-center text-[#00213a]">
                 <ClockIcon />
               </div>
               Arrival/Dismissal
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-gradient-to-br from-[#0078D4] to-[#0091EA] rounded-3xl p-8 text-white shadow-xl">
+              <div className="bg-gradient-to-br from-[#00213a] to-[#003a5d] rounded-3xl p-8 text-white shadow-xl">
                 <h3 className="text-2xl font-bold mb-4">Grades 3K-5</h3>
                 <div className="space-y-3">
                   <div className="flex items-start gap-3">
@@ -189,7 +188,7 @@ const FAQPage = () => {
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-[#D4A908] via-[#E8BB09] to-[#F4C430] rounded-3xl p-8 text-gray-900 shadow-xl">
+              <div className="bg-gradient-to-br from-[#fdbb2e] via-[#fdc951] to-[#fdd874] rounded-3xl p-8 text-gray-900 shadow-xl">
                 <h3 className="text-2xl font-bold mb-4">Middle School (6-8)</h3>
                 <div className="space-y-3">
                   <div className="flex items-start gap-3">
@@ -226,17 +225,17 @@ const FAQPage = () => {
           {/* Attendance */}
           <div className="mb-16">
             <h2 className="text-3xl font-black text-gray-900 mb-6 flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-[#0078D4]/10 flex items-center justify-center text-[#0078D4]">
+              <div className="w-10 h-10 rounded-xl bg-[#00213a]/10 flex items-center justify-center text-[#00213a]">
                 <ClockIcon />
               </div>
               Attendance
             </h2>
             <div className="bg-white rounded-3xl p-8 border-2 border-gray-200">
               <p className="text-gray-700 leading-relaxed mb-4">
-                If your student will be absent or late to school, it is your responsibility to contact the main office directly by <span className="font-bold">9:00am</span> the morning of (the latest) by calling <a href="tel:212-860-5851" className="text-[#0078D4] font-bold hover:underline">212-860-5851</a>.
+                If your student will be absent or late to school, it is your responsibility to contact the main office directly by <span className="font-bold">9:00am</span> the morning of (the latest) by calling <a href="tel:212-860-5851" className="text-[#00213a] font-bold hover:underline">212-860-5851</a>.
               </p>
               <p className="text-gray-700 leading-relaxed">
-                You can also send an email to Ms. Jackie at <a href="mailto:jespinal18@schools.nyc.gov" className="text-[#0078D4] font-medium hover:underline">jespinal18@schools.nyc.gov</a> or to the Parent Coordinator, Ms. Arlette at <a href="mailto:Amartinezmedrano2@schools.nyc.gov" className="text-[#0078D4] font-medium hover:underline">Amartinezmedrano2@schools.nyc.gov</a>.
+                You can also send an email to Ms. Jackie at <a href="mailto:jespinal18@schools.nyc.gov" className="text-[#00213a] font-medium hover:underline">jespinal18@schools.nyc.gov</a> or to the Parent Coordinator, Ms. Arlette at <a href="mailto:Amartinezmedrano2@schools.nyc.gov" className="text-[#00213a] font-medium hover:underline">Amartinezmedrano2@schools.nyc.gov</a>.
               </p>
             </div>
           </div>
@@ -244,7 +243,7 @@ const FAQPage = () => {
           {/* School Hours */}
           <div className="mb-16">
             <h2 className="text-3xl font-black text-gray-900 mb-6 flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-[#E8BB09]/10 flex items-center justify-center text-[#D4A908]">
+              <div className="w-10 h-10 rounded-xl bg-[#fdbb2e]/10 flex items-center justify-center text-[#fdbb2e]">
                 <ClockIcon />
               </div>
               What are the school hours?
@@ -254,7 +253,7 @@ const FAQPage = () => {
                 <div className="text-center">
                   <div className="text-sm text-gray-600 mb-1">School Day</div>
                   <div className="text-3xl font-black text-gray-900">Monday - Friday</div>
-                  <div className="text-2xl font-bold text-[#0078D4] mt-2">8:00 AM - 2:10 PM</div>
+                  <div className="text-2xl font-bold text-[#00213a] mt-2">8:00 AM - 2:10 PM</div>
                 </div>
               </div>
               <p className="text-center text-gray-600 mt-4 font-medium">This schedule applies to all students.</p>
@@ -266,7 +265,7 @@ const FAQPage = () => {
             <h2 className="text-3xl font-black text-gray-900 mb-6">
               Where can I find my child's student ID (OSIS) and Account Creation Code?
             </h2>
-            <div className="bg-white rounded-3xl p-8 border-2 border-[#0078D4]">
+            <div className="bg-white rounded-3xl p-8 border-2 border-[#00213a]">
               <p className="text-gray-700 leading-relaxed mb-6">
                 To have access to all student information including report cards (K-12), attendance, and academic progress, sign up for a <span className="font-bold">New York City Schools Account (NYCSA)</span>. The expectation is that all families have signed up for NYCSA. This account is critical in staying up to date with important announcements from the DOE.
               </p>
@@ -278,7 +277,7 @@ const FAQPage = () => {
                   href="https://www.schools.nyc.gov/learning/student-journey/nyc-schools-account"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#0078D4] text-white font-bold rounded-full hover:bg-[#006ABC] transition-colors duration-200 shadow-md"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#00213a] text-white font-bold rounded-full hover:bg-[#003a5d] transition-colors duration-200 shadow-md"
                 >
                   Create an Account
                   <ExternalLinkIcon />
@@ -303,7 +302,7 @@ const FAQPage = () => {
             </h2>
             <div className="bg-white rounded-3xl p-8 border-2 border-gray-200">
               <p className="text-gray-700 leading-relaxed">
-                Please call the main office at <a href="tel:212-860-5851" className="text-[#0078D4] font-bold hover:underline">212-860-5851</a> to request a school letter or sign up for the school letter request form in the school main lobby.
+                Please call the main office at <a href="tel:212-860-5851" className="text-[#00213a] font-bold hover:underline">212-860-5851</a> to request a school letter or sign up for the school letter request form in the school main lobby.
                 <span className="block mt-2 font-bold text-gray-900">Please allow 24 hours to process your request.</span>
               </p>
             </div>
@@ -314,7 +313,7 @@ const FAQPage = () => {
             <h2 className="text-3xl font-black text-gray-900 mb-6">
               Does my child have to wear uniforms?
             </h2>
-            <div className="bg-gradient-to-br from-[#0078D4] to-[#0091EA] rounded-3xl p-8 text-white shadow-xl">
+            <div className="bg-gradient-to-br from-[#00213a] to-[#003a5d] rounded-3xl p-8 text-white shadow-xl">
               <p className="text-lg font-semibold mb-4">
                 Yes. The expectation for all students is that they are dressed appropriately in full uniform.
               </p>
@@ -365,7 +364,7 @@ const FAQPage = () => {
                 href="http://www.PS96ACT.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group bg-gradient-to-br from-[#D4A908] to-[#E8BB09] rounded-3xl p-6 text-gray-900 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
+                className="group bg-gradient-to-br from-[#fdbb2e] to-[#fdc951] rounded-3xl p-6 text-gray-900 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="text-4xl mb-3">🌐</div>
                 <div className="font-bold text-xl mb-2">Website</div>
@@ -387,15 +386,15 @@ const FAQPage = () => {
                 </p>
                 <ul className="space-y-2 mb-4">
                   <li className="flex items-start gap-2">
-                    <div className="w-2 h-2 bg-[#0078D4] rounded-full mt-2 flex-shrink-0"></div>
+                    <div className="w-2 h-2 bg-[#00213a] rounded-full mt-2 flex-shrink-0"></div>
                     <div>
-                      School Psychologist Ms. Horel: <a href="mailto:khorel@schools.nyc.gov" className="text-[#0078D4] font-medium hover:underline">khorel@schools.nyc.gov</a>
+                      School Psychologist Ms. Horel: <a href="mailto:khorel@schools.nyc.gov" className="text-[#00213a] font-medium hover:underline">khorel@schools.nyc.gov</a>
                     </div>
                   </li>
                   <li className="flex items-start gap-2">
-                    <div className="w-2 h-2 bg-[#0078D4] rounded-full mt-2 flex-shrink-0"></div>
+                    <div className="w-2 h-2 bg-[#00213a] rounded-full mt-2 flex-shrink-0"></div>
                     <div>
-                      IEP Coordinator Ms. Danielson: <a href="mailto:sdanielson@schools.nyc.gov" className="text-[#0078D4] font-medium hover:underline">sdanielson@schools.nyc.gov</a>
+                      IEP Coordinator Ms. Danielson: <a href="mailto:sdanielson@schools.nyc.gov" className="text-[#00213a] font-medium hover:underline">sdanielson@schools.nyc.gov</a>
                     </div>
                   </li>
                 </ul>
@@ -432,8 +431,8 @@ const FAQPage = () => {
 
             <div className="grid md:grid-cols-2 gap-8">
               {afterschoolPrograms.map((program, index) => (
-                <div key={index} className="bg-white rounded-3xl p-8 border-2 border-gray-200 hover:border-[#0078D4] hover:shadow-xl transition-all duration-300">
-                  <div className="bg-gradient-to-r from-[#0078D4] to-[#0091EA] text-white px-4 py-2 rounded-full inline-block mb-4 font-bold">
+                <div key={index} className="bg-white rounded-3xl p-8 border-2 border-gray-200 hover:border-[#00213a] hover:shadow-xl transition-all duration-300">
+                  <div className="bg-gradient-to-r from-[#00213a] to-[#003a5d] text-white px-4 py-2 rounded-full inline-block mb-4 font-bold">
                     {program.grades}
                   </div>
                   <h3 className="text-2xl font-black text-gray-900 mb-4">{program.name}</h3>
@@ -452,11 +451,11 @@ const FAQPage = () => {
                       <div>
                         <div className="font-semibold text-gray-900">Contact:</div>
                         <div className="text-gray-700">{program.contact}</div>
-                        <a href={`mailto:${program.email}`} className="text-[#0078D4] hover:underline text-sm">
+                        <a href={`mailto:${program.email}`} className="text-[#00213a] hover:underline text-sm">
                           {program.email}
                         </a>
                         {program.phone && (
-                          <a href={`tel:${program.phone}`} className="block text-[#0078D4] hover:underline text-sm">
+                          <a href={`tel:${program.phone}`} className="block text-[#00213a] hover:underline text-sm">
                             {program.phone}
                           </a>
                         )}
@@ -482,7 +481,7 @@ const FAQPage = () => {
               <p className="text-gray-700 leading-relaxed">
                 For questions about school pictures, contact Lifetouch Customer Service:
               </p>
-              <a href="tel:1-866-955-8342" className="text-2xl font-bold text-[#0078D4] hover:underline mt-3 inline-block">
+              <a href="tel:1-866-955-8342" className="text-2xl font-bold text-[#00213a] hover:underline mt-3 inline-block">
                 1-866-955-8342
               </a>
             </div>
@@ -493,7 +492,7 @@ const FAQPage = () => {
             <h2 className="text-3xl font-black text-gray-900 mb-6">
               School Food - Family Income Inquiry Form
             </h2>
-            <div className="bg-gradient-to-br from-[#E8BB09] to-[#F4C430] rounded-3xl p-8 text-gray-900 shadow-xl">
+            <div className="bg-gradient-to-br from-[#fdbb2e] to-[#fdc951] rounded-3xl p-8 text-gray-900 shadow-xl">
               <p className="text-lg font-bold mb-6">
                 We ask you to take a few moments to complete the FAMILY INCOME INQUIRY FORM to help us receive funding to ensure our students continue to receive free meals as a Title 1 school.
               </p>
@@ -538,29 +537,7 @@ const FAQPage = () => {
         </section>
       </main>
 
-      {/* Footer - Same as HomePage */}
-      <footer className="bg-gray-900 text-gray-400 pt-20 pb-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <div className="inline-flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#E8BB09] via-[#D4A908] to-[#0078D4] flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold">96</span>
-              </div>
-              <div>
-                <div className="text-white font-black text-xl">PS 96 Lions</div>
-                <div className="text-sm text-gray-500">Lanzetta School</div>
-              </div>
-            </div>
-            <p className="text-sm text-gray-500 mb-8">
-              216 E 120th St, New York, NY 10035 | (212) 860-5851
-            </p>
-            <div className="pt-8 border-t border-gray-800 text-sm text-gray-600">
-              <p>&copy; {new Date().getFullYear()} Joseph C. Lanzetta School of the Arts, Collaboration, & Technology</p>
-              <p className="mt-1">Part of the New York City Department of Education</p>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
